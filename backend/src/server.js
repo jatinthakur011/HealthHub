@@ -22,12 +22,13 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const backendRoot = path.resolve(__dirname, '..')
 
-dotenv.config({ path: path.join(backendRoot, '.env') })
+dotenv.config()
 
 const app = express()
 
 const PORT = process.env.PORT || 5000
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/lifelink'
+console.log("Mongo URI exists:", !!MONGODB_URI)
 function isInvalidMongoUri(uri) {
   if (!uri) return true
   if (uri.indexOf('<') !== -1 || uri.indexOf('>') !== -1) return true
@@ -87,6 +88,7 @@ app.use('/api/complaints', complaintsRouter)
 mongoose
   .connect(MONGODB_URI)
   .then(() => {
+    console.log("MongoDB Connected")
     app.listen(PORT, () => console.log(`Backend running on :${PORT}`))
   })
   .catch((err) => {
