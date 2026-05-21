@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes dropFall {
+  0% {
+    margin-top: -18px;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    margin-top: 120px;
+    opacity: 1;
+  }
+  100% {
+    margin-top: 155px;
+    opacity: 0;
+  }
+}
+
+@keyframes liquidWave {
+  0%,
+  100% {
+    transform: translateX(-2%) rotate(0deg);
+    border-radius: 46% 54% 58% 42% / 42% 44% 56% 58%;
+  }
+  50% {
+    transform: translateX(2%) rotate(-2deg);
+    border-radius: 58% 42% 46% 54% / 48% 56% 44% 52%;
+  }
+}
+
+@keyframes heartbeatHalo {
+  0% {
+    transform: translate(-50%, -50%) scale(0.88);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.38;
+  }
+  60% {
+    opacity: 0.14;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.24);
+    opacity: 0;
+  }
+}
+
+@keyframes bloodDrip {
+  0% {
+    transform: translateY(0) scale(0.78, 1.08);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  58% {
+    transform: translateY(90px) scale(0.98, 1.02);
+    opacity: 1;
+  }
+  82% {
+    transform: translateY(124px) scale(1.05, 0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(140px) scale(0.82, 1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes bloodDripReal {
+  0% {
+    transform: translateY(0) scale(0.85, 1.05);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.95;
+  }
+  58% {
+    transform: translateY(84px) scale(0.96, 1.02);
+    opacity: 1;
+  }
+  82% {
+    transform: translateY(118px) scale(1.06, 0.94);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(136px) scale(0.8, 1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes bloodDropScene {
+  0% {
+    opacity: 1;
+  }
+  74% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fillBloodLoop {
+  0% {
+    height: 3%;
+  }
+  8% {
+    height: 6%;
+  }
+  30% {
+    height: 24%;
+  }
+  52% {
+    height: 44%;
+  }
+  72% {
+    height: 61%;
+  }
+  80% {
+    height: 70%;
+  }
+  88% {
+    height: 70%;
+  }
+  100% {
+    height: 3%;
+  }
+}
+
+.blood-stream {
+  animation: bloodDropScene 8.8s linear infinite;
+}
+
+.blood-drop {
+  transform-origin: 50% 0%;
+  animation: bloodDripReal 0.95s cubic-bezier(0.28, 0.82, 0.34, 1) infinite, bloodDropScene 8.8s linear infinite;
+}
+
+.blood-drop.drop-2 {
+  animation-delay: 0.28s, 0s;
+}
+
+.blood-drop.drop-3 {
+  animation-delay: 0.56s, 0s;
+}
+
+.blood-fill {
+  height: 3%;
+  animation: fillBloodLoop 8.8s cubic-bezier(0.25, 0.9, 0.3, 1) infinite;
+}
+
+@keyframes fillBlood {
+  0% {
+    height: 64%;
+  }
+  30% {
+    height: 70%;
+  }
+  55% {
+    height: 67%;
+  }
+  80% {
+    height: 73%;
+  }
+  100% {
+    height: 69%;
+  }
+}
+
+@keyframes pipeFlow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 56px;
+  }
+}
+
+@keyframes surfaceRipple {
+  0% {
+    transform: translateX(-50%) scale(0.65);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.75;
+  }
+  75% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.32);
+    opacity: 0;
+  }
+}
+
+.doctor-heartbeat-line {
+  height: 100%;
+  width: 100%;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent 0%, transparent 6%, rgba(255,255,255,0.18) 6%, rgba(255,255,255,0.18) 100%),
+    linear-gradient(90deg,
+      transparent 0%,
+      transparent 8%,
+      #60a5fa 8%,
+      #60a5fa 22%,
+      transparent 22%,
+      transparent 28%,
+      #60a5fa 28%,
+      #60a5fa 36%,
+      transparent 36%,
+      transparent 43%,
+      #60a5fa 43%,
+      #818cf8 48%,
+      #38bdf8 53%,
+      #818cf8 58%,
+      #60a5fa 64%,
+      transparent 64%,
+      transparent 72%,
+      #60a5fa 72%,
+      #60a5fa 86%,
+      transparent 86%,
+      transparent 100%);
+  background-size: 180% 100%, 180% 100%;
+  background-position: 0 50%, 0 50%;
+  animation: doctorLineFlow 3.2s linear infinite;
+}
+
+@keyframes doctorLineFlow {
+  0% {
+    background-position: 0 50%, 0 50%;
+  }
+  100% {
+    background-position: -180% 50%, -180% 50%;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
