@@ -32,7 +32,7 @@ function ReqPage() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/blood/${slug}`);
+        const res = await fetch(`https://healthhub-mkdt.onrender.com/api/blood/${slug}`);
         if (!res.ok) throw new Error("Failed to load request");
         const data = await res.json();
         setPost(data);
@@ -64,7 +64,7 @@ function ReqPage() {
 
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/blood/${slug}/donate`, {
+      const res = await fetch(`https://healthhub-mkdt.onrender.com/api/blood/${slug}/donate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
